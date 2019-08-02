@@ -8,7 +8,7 @@
 # Except these
 # Files
 !.gitignore
-!README
+!README.md
 
 # Directories
 !after
