@@ -1,0 +1,81 @@
+*vim-template.txt* *vim-template* Automatic dynamic templates using UltiSnips
+
+Author:  Simon Rydell <https://simonrydell.xyz>
+Repo:    https://github.com/srydell/vim-template
+License: Same terms as Vim itself (see |license|)
+
+SETUP                                           *vim-template-setup*
+
+Vim-template provides a way of using UltiSnips
+(https://github.com/SirVer/ultisnips) to create dynamic templates for new
+files. These use 'skeleton' or 'template' snippets which all begin by an
+underscore (_). Here's a simple example for a shell file:
+>
+    snippet _skel "Shebang" b
+    #!/bin/sh
+    $0
+    endsnippet
+
+After saving that new snippet, whenever an empty `sh` buffer is opened, vim will populate it with our template.
+
+The 'skel' template is the least significant and will only be expanded if no
+other templates were found. The second way of specifying a skeleton is using
+Tim Pope's Projectionist plugin (https://github.com/tpope/vim-projectionist).
+You should definitely read the documentation of projectionist, but it
+basically enables you to add meta data about a project. It triggers vim to
+read the file '.projections.json', typically located at the project root.
+Vim-template allows for the 'skeleton' key as:
+
+>
+    {
+        "tests/test_*.py": {
+            "skeleton": "unittest"
+        }
+    }
+<
+That will trigger the 'unittest' template, or the '_unittest' snippet, to
+expand on entering a new buffer matching the globbing.
+
+If the template should be the same for all projects,
+you can use g:projectionist_heuristics in your vimrc to define a global setting:
+
+>
+    let g:projectionist_heuristics = {
+          \   '*': {
+          \     'tests/test_*.py': {
+          \       'skeleton': 'unittest'
+          \     },
+          \   },
+          \ }
+<
+And for completeness, here is an example of how the 'unittest' template could
+look like:
+
+>
+    snippet _unittest "Unittest template" b
+    import unittest
+    import `!p snip.rv = fn[5:-3]`
+
+    class Test`!p snip.rv = fn[5:-3].title()`(unittest.TestCase):
+        @classmethod
+        def setUpClass(cls):
+            ${1:pass}
+
+        def test_${2:function}(self):
+            ${3:pass}
+
+    if __name__ == '__main__':
+        unittest.main()
+    endsnippet
+<
+
+Note that vim-template will work just fine without Projectionist installed, it
+will simply ignore those templates.
+
+CREDITS                                           *vim-template-credits*
+
+This plugin started as a simple copy paste from an idea by Noah Frederick (https://noahfrederick.com/log/vim-templates-with-ultisnips-and-projectionist) and is used and distributed with his approval.
+
+Otherwise distributed under the same terms as Vim itself (see |license|)
+
+vim:tw=78:et:ft=help:norl:

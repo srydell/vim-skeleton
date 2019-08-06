@@ -52,10 +52,6 @@ if __name__ == '__main__':
 endsnippet
 ```
 
-Resulting in:
-
-![vim-template](https://media.giphy.com/media/h5XHFzXWFe4JxibGwM/giphy.gif "vim-template")
-
 If the template should be the same for all projects, you can use `g:projectionist_heuristics` to define a global setting.
 
 ```vim
@@ -68,6 +64,9 @@ let g:projectionist_heuristics = {
       \ }
 ```
 
+Resulting in:
+
+![vim-template](https://media.giphy.com/media/h5XHFzXWFe4JxibGwM/giphy.gif "vim-template")
 
 ## Installation ##
 
@@ -82,6 +81,6 @@ $ vim -u NONE -c "helptags vim-template/doc" -c q
 ```
 
 ## License ##
-**NOTE:** This plugin started as a simple copy paste from [an idea by Noah Frederick](https://noahfrederick.com/log/vim-templates-with-ultisnips-and-projectionist) and is used and distributed with his approval. Check out his other projects at [his github](https://github.com/noahfrederick) or [his website](https://noahfrederick.com).
+**NOTE:** This plugin started as a simple copy paste from [an idea by Noah Frederick](https://noahfrederick.com/log/vim-templates-with-ultisnips-and-projectionist) and is used and distributed with his approval. Check out some of his projects on [his github](https://github.com/noahfrederick) or [his website](https://noahfrederick.com).
 
 Otherwise distributed under the same terms as Vim itself. See `:help license.`
