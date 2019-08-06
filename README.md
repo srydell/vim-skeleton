@@ -32,6 +32,18 @@ We can here be even more specific with our templates.
 }
 ```
 
+If the template should be the same for all projects, you can use `g:projectionist_heuristics` to define a global setting.
+
+```vim
+let g:projectionist_heuristics = {
+      \   '*': {
+      \     'tests/test_*.py': {
+      \       'skeleton': 'unittest'
+      \     },
+      \   },
+      \ }
+```
+
 Where the snippets file for `python` contains:
 
 ```
@@ -50,18 +62,6 @@ class Test`!p snip.rv = fn[5:-3].title()`(unittest.TestCase):
 if __name__ == '__main__':
 	unittest.main()
 endsnippet
-```
-
-If the template should be the same for all projects, you can use `g:projectionist_heuristics` to define a global setting.
-
-```vim
-let g:projectionist_heuristics = {
-      \   '*': {
-      \     'tests/test_*.py': {
-      \       'skeleton': 'unittest'
-      \     },
-      \   },
-      \ }
 ```
 
 Resulting in:
