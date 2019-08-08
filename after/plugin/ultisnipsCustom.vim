@@ -1,4 +1,10 @@
-" Modified by Simon Rydell originally from Noah Frederick
+" Location: after/plugin/ultisnipsCustom.vim
+" Author: Modified by Simon Rydell originally by Noah Frederick
+
+if exists('g:after_plugin_ultisnipsCustom')
+  finish
+endif
+let g:after_plugin_ultisnipsCustom = 1
 
 " Check if UltiSnips is loaded
 if !(exists('g:UltiSnipsExpandTrigger') || (has('python') && has('python3')))

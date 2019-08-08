@@ -1,4 +1,10 @@
-" Modified by Simon Rydell originally by Noah Frederick
+" Location: autoload/snippet.vim
+" Author: Modified by Simon Rydell originally by Noah Frederick
+
+if exists('g:autoloaded_vim_template')
+  finish
+endif
+let g:autoloaded_vim_template = 1
 
 " Try to expand the snippet named _skel
 function! s:try_insert(skel)
