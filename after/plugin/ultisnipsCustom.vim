@@ -14,5 +14,5 @@ endif
 augroup ultisnips_custom
   autocmd!
   " Try and expand a skeleton upon a new file
-  autocmd BufNewFile * silent! call snippet#insert_skeleton()
+  autocmd BufNewFile * silent! call template#insert_skeleton()
 augroup END

@@ -1,4 +1,4 @@
-" Location: autoload/snippet.vim
+" Location: autoload/template.vim
 " Author: Modified by Simon Rydell originally by Noah Frederick
 
 if exists('g:autoloaded_vim_template')
@@ -29,7 +29,7 @@ function! s:undo_workaround() abort
   nunmap <buffer> u
 endfunction
 
-function! snippet#insert_skeleton() abort
+function! template#insert_skeleton() abort
   " Abort on non-empty buffer or extant file
   if !exists('g:did_plugin_ultisnips') || !(line('$') ==# 1 && getline('$') ==# '') || filereadable(expand('%:p'))
     return
