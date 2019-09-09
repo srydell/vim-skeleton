@@ -1,10 +1,10 @@
 " Location: after/plugin/ultisnipsCustom.vim
 " Author: Modified by Simon Rydell originally by Noah Frederick
 
-if exists('g:after_plugin_ultisnipsCustom')
+if exists('g:after_plugin_template')
   finish
 endif
-let g:after_plugin_ultisnipsCustom = 1
+let g:after_plugin_template = 1
 
 " Check if UltiSnips is loaded
 if !(exists('g:UltiSnipsExpandTrigger') || (has('python') && has('python3')))
@@ -14,5 +14,5 @@ endif
 augroup ultisnips_custom
   autocmd!
   " Try and expand a skeleton upon a new file
-  autocmd BufNewFile * silent! call template#insert_skeleton()
+  autocmd BufNewFile * silent! call skeleton#insert_skeleton()
 augroup END

@@ -1,10 +1,10 @@
-" Location: autoload/template.vim
+" Location: autoload/skeleton.vim
 " Author: Modified by Simon Rydell originally by Noah Frederick
 
-if exists('g:autoloaded_vim_template')
+if exists('g:autoloaded_vim_skeleton')
   finish
 endif
-let g:autoloaded_vim_template = 1
+let g:autoloaded_vim_skeleton = 1
 
 " Try to expand the snippet named _skel
 function! s:try_insert(skel)
@@ -29,7 +29,7 @@ function! s:undo_workaround() abort
   nunmap <buffer> u
 endfunction
 
-function! template#insert_skeleton() abort
+function! skeleton#insert_skeleton() abort
   " Abort on non-empty buffer or extant file
   if !exists('g:did_plugin_ultisnips') || !(line('$') ==# 1 && getline('$') ==# '') || filereadable(expand('%:p'))
     return
@@ -50,7 +50,7 @@ function! template#insert_skeleton() abort
 
   " If the current filename is in s:filenames_and_snippets,
   " then insert that snippet,
-  " otherwise try generic _skel template
+  " otherwise try generic _skel skeleton
   if s:try_insert('skel')
     call s:install_undo_workaround()
   endif

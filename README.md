@@ -1,10 +1,10 @@
-# vim-template #
+# vim-skeleton #
 
-Vim-template provides a way of using [UltiSnips](https://github.com/SirVer/ultisnips) to create dynamic templates for new files.
+Vim-skeleton provides a way of using [UltiSnips](https://github.com/SirVer/ultisnips) to create dynamic file skeletons for new files.
 
 ## Usage ##
 
-### Using the `_skel` template ###
+### Using the `_skel` skeleton ###
 
 Whenever a new buffer is created, the plugin will try and expand the snippet `_skel` for that filetype. A simple use case would be a shell script starting with a `shebang`:
 
@@ -15,13 +15,13 @@ $0
 endsnippet
 ```
 
-After saving that new snippet, whenever an empty `sh` buffer is opened, vim will populate it with our template.
+After saving that new snippet, whenever an empty `sh` buffer is opened, vim will populate it with our skeleton.
 
-### Using [`vim-projectionist`](https://github.com/tpope/vim-projectionist) to determine the template ###
+### Using [`vim-projectionist`](https://github.com/tpope/vim-projectionist) to determine the skeleton ###
 
 Vim-projectionist is a great way of providing meta data to your project. It allows for the file `.projections.json` to be read by vim, adding information about certain files in the current directory subtree.
 
-We can here be even more specific with our templates.
+We can here be even more specific with our skeletons.
 
 ```json
 .projections.json
@@ -32,7 +32,7 @@ We can here be even more specific with our templates.
 }
 ```
 
-If the template should be the same for all projects, you can use `g:projectionist_heuristics` to define a global setting.
+If the skeleton should be the same for all projects, you can use `g:projectionist_heuristics` to define a global setting.
 
 ```vim
 let g:projectionist_heuristics = {
@@ -47,7 +47,7 @@ let g:projectionist_heuristics = {
 Where the snippets file for `python` contains:
 
 ```
-snippet _unittest "Unittest template" b
+snippet _unittest "Unittest skeleton" b
 import unittest
 import `!p snip.rv = fn[5:-3]`
 
@@ -66,7 +66,7 @@ endsnippet
 
 Resulting in:
 
-![vim-template](https://media.giphy.com/media/h5XHFzXWFe4JxibGwM/giphy.gif "vim-template")
+![vim-skeleton](https://media.giphy.com/media/h5XHFzXWFe4JxibGwM/giphy.gif "vim-skeleton")
 
 ## Installation ##
 
@@ -76,8 +76,8 @@ support:
 ```shell
 $ mkdir -p ~/.vim/pack/manager/start
 $ cd ~/.vim/pack/manager/start
-$ git clone https://github.com/srydell/vim-template.git
-$ vim -u NONE -c "helptags vim-template/doc" -c q
+$ git clone https://github.com/srydell/vim-skeleton.git
+$ vim -u NONE -c "helptags vim-skeleton/doc" -c q
 ```
 
 ## License ##
